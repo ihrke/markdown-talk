@@ -2,6 +2,8 @@
 
 Presentation in markdown using LaTeX Beamer.
 
+See [markdown-paper](https://github.com/ihrke/markdown-paper) for template for a scientific paper.
+
 *NOTE*: [pandoc](http://pandoc.org/) version > 1.16 is recommended because image-attributes are not available before that version.
 
 
