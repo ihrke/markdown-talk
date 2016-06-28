@@ -32,6 +32,8 @@ The Makefile details how the translation works. If you are on linux, simply call
 
 There are some tips in the `talk.md` file to get you started.
 
+NOTE: `guard.sh` is a little tool that calls `make` whenever something changes in the directory (I find it useful for updating the PDF automatically whenever I hit safe)
+
 ## Dependencies
 
 - [pandoc](http://pandoc.org/)

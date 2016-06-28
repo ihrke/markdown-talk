@@ -89,7 +89,12 @@ $if(natbib)$
 \bibliographystyle{$if(biblio-style)$$biblio-style$$else$plainnat$endif$}
 $endif$
 $if(biblatex)$
-\usepackage$if(biblio-style)$[style=$biblio-style$]$endif${biblatex}
+\usepackage[english, american]{babel}
+\usepackage{csquotes}
+\usepackage[style=apa,sortcites=true,sorting=nyt,backend=biber]{biblatex}
+\DeclareLanguageMapping{english}{american-apa}
+\renewcommand*{\bibfont}{\scriptsize}
+%\usepackage$if(biblio-style)$[style=$biblio-style$]$endif${biblatex}
 $if(biblatexoptions)$\ExecuteBibliographyOptions{$for(biblatexoptions)$$biblatexoptions$$sep$,$endfor$}$endif$
 $for(bibliography)$
 \addbibresource{$bibliography$}
@@ -201,9 +206,9 @@ $if(author)$
 \author{$for(author)$$author$$sep$ \and $endfor$}
 $endif$
 $if(institute)$
-\institute{$for(institute)$$institute$$sep$ \and $endfor$}
+\institute$if(instituteshorthand)$[$instituteshorthand$]$endif${$for(institute)$$institute$$sep$ \and $endfor$}
 $endif$
-\date{$date$}
+\date[$date$]{$date$$if(event)$\\$event$$endif$}
 
 \begin{document}
 $if(title)$
@@ -238,6 +243,7 @@ $endif$
 
 $endif$
 $endif$
+
 $if(biblatex)$
 \begin{frame}[allowframebreaks]{$biblio-title$}
 \bibliographytrue

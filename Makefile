@@ -12,11 +12,20 @@ TEMPLATE_FILES:=$(wildcard templates/*.beamer)
 
 all: $(TEX_FILES) $(PDF_FILES)
 
-%.pdf: %.md $(TEMPLATE_FILES)
-	$(PANDOC) -s -S -t beamer $< -V theme:$(THEME) -V colortheme:$(COLORTHEME) --filter pandoc-citeproc --bibliography $(BIBLIOGRAPHY) --template $(TEMPLATE) -o $@
+#%.pdf: %.md $(TEMPLATE_FILES) $(BIBLIOGRAPHY)
+#	$(PANDOC) -s -S -t beamer $< -V theme:$(THEME) -V colortheme:$(COLORTHEME) --filter pandoc-citeproc --bibliography $(BIBLIOGRAPHY) --template $(TEMPLATE) -o $@
 
-%.tex: %.md $(TEMPLATE_FILES)
-		$(PANDOC) -s -S -t beamer $< -V theme:$(THEME) --filter pandoc-citeproc --bibliography $(BIBLIOGRAPHY) --template $(TEMPLATE) -o $@
+#%.pdf: %.md $(TEMPLATE_FILES) $(BIBLIOGRAPHY)
+#		$(PANDOC) -s -S -t beamer $< -V theme:$(THEME) -V colortheme:$(COLORTHEME) --natbib --bibliography $(BIBLIOGRAPHY) --template $(TEMPLATE) -o $@
+
+%.pdf: %.tex
+		pdflatex $(basename $<)
+		biber $(basename $<)
+		pdflatex $(basename $<)
+
+%.tex: %.md $(TEMPLATE_FILES) $(BIBLIOGRAPHY)
+		#$(PANDOC) -s -S -t beamer $< -V theme:$(THEME) -V colortheme:$(COLORTHEME) --filter pandoc-citeproc --bibliography $(BIBLIOGRAPHY) --template $(TEMPLATE) -o $@
+		$(PANDOC) -s -S -t beamer $< -V theme:$(THEME) -V colortheme:$(COLORTHEME) --biblatex -V biblio-style:apa -V biblio-title:References --bibliography $(BIBLIOGRAPHY) --template $(TEMPLATE) -o $@
 
 .PHONY : clean
 clean :
