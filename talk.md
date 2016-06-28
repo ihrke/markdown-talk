@@ -2,6 +2,10 @@
 title:  'Great Talk'
 author: Me Ofcourse
 date: 17.2.2016
+institute: Institute for Psychology, University of Tromsø, Norway
+toc: true
+logo: pics/uit.png
+logowidth: .8\textwidth
 ...
 
 # Section 1
