@@ -91,8 +91,12 @@ $endif$
 $if(biblatex)$
 \usepackage[english, american]{babel}
 \usepackage{csquotes}
-\usepackage[style=apa,sortcites=true,sorting=nyt,backend=biber]{biblatex}
+\usepackage{hyperref}
+\usepackage[style=authoryear,sortcites=true,hyperref=true,sorting=nyt,backend=biber,maxcitenames=1]{biblatex}
+\let\realautocite\autocite
+\renewcommand*{\autocite}[1]{{\tiny\color{blue}{\realautocite{#1}}}}
 \DeclareLanguageMapping{english}{american-apa}
+%\renewcommand{\autocite}[1]{{Hallo: \autocite{[1]}}}
 \renewcommand*{\bibfont}{\scriptsize}
 %\usepackage$if(biblio-style)$[style=$biblio-style$]$endif${biblatex}
 $if(biblatexoptions)$\ExecuteBibliographyOptions{$for(biblatexoptions)$$biblatexoptions$$sep$,$endfor$}$endif$
