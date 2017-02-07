@@ -19,6 +19,7 @@ The Makefile details how the translation works. If you are on linux, simply call
     pip install pandoc-fignos
     ~~~
 2. check that pandoc has version>=1.16 (otherwise install from other source)
+
     ~~~{bash}
     pandoc -v
     ~~~
