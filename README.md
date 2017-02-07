@@ -25,7 +25,7 @@ The Makefile details how the translation works. If you are on linux, simply call
 2. Clone this repository
 
     ~~~{bash}
-    git clone
+    git clone https://github.com/ihrke/markdown-talk.git
     ~~~
 3. Edit `Makefile` to choose a theme
 4. Write talk in `talk.md`, refs in `bibliography.bib`, compile with `make`
