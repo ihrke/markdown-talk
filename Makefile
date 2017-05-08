@@ -3,7 +3,7 @@ COLORTHEME=crane
 TEMPLATE=templates/amsterdam.beamer
 PANDOC=pandoc #/usr/local/bin/pandoc
 BIBLIOGRAPHY=bibliography.bib
-MD_FILES=talk.md talk_power.md
+MD_FILES=talk.md
 
 
 TEX_FILES:=$(MD_FILES:.md=.tex)
