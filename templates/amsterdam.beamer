@@ -201,7 +201,7 @@ $header-includes$
 $endfor$
 
 $if(title)$
-\title{$title$}
+\title$if(shorttitle)$[$shorttitle$]$endif${$title$}
 $endif$
 $if(subtitle)$
 \subtitle{$subtitle$}
