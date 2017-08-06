@@ -27,6 +27,9 @@ all: $(TEX_FILES) $(PDF_FILES)
 		#$(PANDOC) -s -S -t beamer $< -V theme:$(THEME) -V colortheme:$(COLORTHEME) --filter pandoc-citeproc --bibliography $(BIBLIOGRAPHY) --template $(TEMPLATE) -o $@
 		$(PANDOC) -s -S -t beamer $< -V theme:$(THEME) -V colortheme:$(COLORTHEME) --biblatex -V biblio-style:apa -V biblio-title:References --bibliography $(BIBLIOGRAPHY) --template $(TEMPLATE) -o $@
 
+watch: $(MD_FILES) $(BIBLIOGRAPHY)
+	fswatch -o $^ | xargs -n1 -I{} make
+
 .PHONY : clean
 clean :
 	-rm $(PDF_FILES) *.aux *.out *.log *.fdb_latexmk *.fls *.synctex.gz
