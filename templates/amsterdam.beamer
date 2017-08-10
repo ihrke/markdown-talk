@@ -2,6 +2,11 @@
 \setbeamertemplate{caption}[numbered]
 \setbeamertemplate{caption label separator}{: }
 \setbeamercolor{caption name}{fg=normal text.fg}
+
+%% columns
+\newcommand{\begincols}[1]{\begin{columns}{#1}}
+\newcommand{\stopcols}{\end{columns}}
+
 \beamertemplatenavigationsymbols$if(navigation)$$navigation$$else$empty$endif$
 $if(fontfamily)$
 \usepackage[$for(fontfamilyoptions)$$fontfamilyoptions$$sep$,$endfor$]{$fontfamily$}
@@ -207,7 +212,7 @@ $if(subtitle)$
 \subtitle{$subtitle$}
 $endif$
 $if(author)$
-\author{$for(author)$$author$$sep$ \and $endfor$}
+\author$if(shortauthor)$[$shortauthor$]$endif${$for(author)$$author$$sep$ \and $endfor$}
 $endif$
 $if(institute)$
 \institute$if(instituteshorthand)$[$instituteshorthand$]$endif${$for(institute)$$institute$$sep$ \and $endfor$}

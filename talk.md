@@ -1,8 +1,10 @@
 ---
 title:  'Great Talk'
-author: Me Ofcourse
+author: Prof. Dr. Me Ofcourse
+shortauthor: M Ofcourse
 date: 17.2.2016
 institute: Institute for Psychology, University of Tromsø, Norway
+instituteshorthand: UiT - Tromsø
 toc: true
 logo: pics/uit.png
 logowidth: .8\textwidth
@@ -67,6 +69,27 @@ slide without title
   \end{itemize}
 \end{minipage}
 \end{minipage}
+
+## multi-column slide in markdown
+
+\begincols{}
+
+\column{0.3\textwidth}
+
+![](pics/stan.png)\
+
+\column{0.7\textwidth}
+
+
+found this in <https://github.com/jgm/pandoc/issues/1710>
+
+- this
+- **has**
+    - full [markdown]() support!
+
+
+\stopcols
+
 
 
 ## A full slide can be shrunk {.shrink}

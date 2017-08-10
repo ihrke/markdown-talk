@@ -8,6 +8,8 @@
 *.toc
 *.fmt
 
+talk.tex
+
 ## Intermediate documents:
 *.dvi
 *-converted-to.*
