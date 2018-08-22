@@ -20,10 +20,10 @@ all: $(TEX_FILES) $(PDF_FILES)
 #		$(PANDOC) -s -S -t beamer $< -V theme:$(THEME) -V colortheme:$(COLORTHEME) --natbib --bibliography $(BIBLIOGRAPHY) --template $(TEMPLATE) -o $@
 
 %.pdf: %.tex
-		pdflatex $(TEX_FLAGS) $(basename $<)
-		biber $(basename $<)
-		pdflatex $(TEX_FLAGS) $(basename $<)
-		rm $(basename $<).aux $(basename $<).out $(basename $<).log $(basename $<).fls $(basename $<).bbl $(basename $<).vrb $(basename $<).nav $(basename $<).bcf $(basename $<).to $(basename $<).snm $(basename $<).run.xml
+		-pdflatex $(TEX_FLAGS) $(basename $<)
+		-biber $(basename $<)
+		-pdflatex $(TEX_FLAGS) $(basename $<)
+		-rm -f $(basename $<).aux $(basename $<).out $(basename $<).log $(basename $<).fls $(basename $<).bbl $(basename $<).vrb $(basename $<).nav $(basename $<).bcf $(basename $<).toc $(basename $<).snm $(basename $<).run.xml $(basename $<).blg
 
 %.tex: %.md $(TEMPLATE_FILES) $(BIBLIOGRAPHY)
 		#$(PANDOC) -s -S -t beamer $< -V theme:$(THEME) -V colortheme:$(COLORTHEME) --filter pandoc-citeproc --bibliography $(BIBLIOGRAPHY) --template $(TEMPLATE) -o $@
