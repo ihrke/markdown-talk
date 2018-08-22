@@ -8,11 +8,23 @@ instituteshorthand: UiT - Tromsø
 toc: true
 logo: pics/uit.png
 logowidth: .8\textwidth
+header-includes:
+  - \renewenvironment{quote}{\begin{center}}{\end{center}}
+output:
+  beamer_presentation:
+    toc: true
+    keep_tex: true
+    slide_level: 1
+    theme: "templates/amsterdam.beamer"
+    highlight: tango  
 ...
 
-# Section 1
+# Notes
 
-## Slide 1
+- the stuff after `output` in the preamble is so that the `atom`-package [markdown-preview-enhanced](https://github.com/shd101wyy/markdown-preview-enhanced) also works properly
+- all the rest is specified in the latex-templates and the `Makefile`
+
+# Slide 1
 
 - Bullett point
 
@@ -20,18 +32,23 @@ logowidth: .8\textwidth
 
 - pause on slide
 
+# Centering stuff
 
+> I redefined the `>` symbol to result in a center-environment
+> can be used with images, too
 
-## citations
+> ![](pics/stan.png){ width=30% }
+
+# citations
 
 work [@open2015estimating] in case you use pandoc-citeproc
 
 
-## Pictures
+# Pictures
 
 ![Stan's logo with a caption and figure number, custom width.](pics/stan.png){ width=60% }
 
-## Pictures without captions
+# Pictures without captions
 
 Use a backslash after the picture
 
@@ -40,7 +57,7 @@ Use a backslash after the picture
 
 So that you don't get a caption. (two empty lines after)
 
-## Paused bullet points
+# Paused bullet points
 
 > 1. number one
 > 2. and two
@@ -54,7 +71,7 @@ So that you don't get a caption. (two empty lines after)
 slide without title
 
 
-## Latex slide
+# Latex slide
 
 \begin{minipage}{\textwidth}
 \begin{minipage}{.5\textwidth}
@@ -70,7 +87,7 @@ slide without title
 \end{minipage}
 \end{minipage}
 
-## multi-column slide in markdown
+# multi-column slide in markdown
 
 \begincols{}
 
@@ -90,9 +107,23 @@ found this in <https://github.com/jgm/pandoc/issues/1710>
 
 \stopcols
 
+# multi-columns using the new markdown-syntax
 
 
-## A full slide can be shrunk {.shrink}
+:::::::::::::: {.columns}
+::: {.column width="35%"}
+## block 1
+contents...
+:::
+::: {.column width="60%"}
+## block 2
+contents...
+:::
+::::::::::::::
+
+
+
+# A full slide can be shrunk {.shrink}
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam risus sem, consectetur ac dui non, mattis egestas sem. Quisque sit amet mi lacus. Mauris porta lacus sapien, ac tempor nisl faucibus ut. Aenean tristique nibh ut mauris pretium, eget pellentesque erat suscipit. Vivamus ornare ex fringilla dapibus blandit. Nam sodales tincidunt nisl at bibendum. In porta, dolor at rutrum varius, nulla nulla tincidunt diam, ut vestibulum turpis mi eu tellus. Curabitur id dolor placerat, efficitur sapien eget, fermentum diam. Mauris sodales mattis rutrum. Cras varius lobortis fringilla. Phasellus magna mauris, ornare nec maximus in, ultricies nec dui. Quisque laoreet ullamcorper metus, a scelerisque lacus sodales sed.
 
@@ -103,6 +134,6 @@ Nunc quis convallis odio. Sed finibus id ipsum non molestie. Morbi dignissim sce
 Nullam molestie ultrices enim at viverra. Donec tristique vel ante id tincidunt. Fusce bibendum nibh in ligula tincidunt, blandit molestie nulla eleifend. Phasellus pulvinar velit libero, a sollicitudin diam egestas non. Pellentesque eu turpis efficitur, blandit lectus et, venenatis nulla. Etiam quis auctor lorem. In nec lacinia lorem. Lorem ipsum dolor sit amet, consectetur adipiscing elit. In porttitor diam vitae ipsum molestie, a semper erat vulputate. Suspendisse sit amet scelerisque magna, ac porta ligula.
 
 
-## References {.allowframebreaks}
+# References {.allowframebreaks}
 
 Enable allowframebreaks so that the list can be spread out across many slides
