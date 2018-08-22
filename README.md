@@ -35,6 +35,13 @@ There are some tips in the `talk.md` file to get you started.
 
 NOTE: `guard.sh` is a little tool that calls `make` whenever something changes in the directory (I find it useful for updating the PDF automatically whenever I hit safe)
 
+## Editor
+
+I use the [atom](http://atom.io) editor using the [markdown-preview-enhanced](https://github.com/shd101wyy/markdown-preview-enhanced)-package.
+That way, I get an immediate visual update of the markdown I am writing (though it is not the final design, of course).
+
+- Formatting the markdown-tables: https://atom.io/packages/markdown-table-formatter
+
 ## Dependencies
 
 - [pandoc](http://pandoc.org/)
