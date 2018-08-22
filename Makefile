@@ -4,6 +4,7 @@ TEMPLATE=templates/amsterdam.beamer
 PANDOC=pandoc #/usr/local/bin/pandoc
 BIBLIOGRAPHY=bibliography.bib
 MD_FILES=talk.md
+TEX_FLAGS=-interaction=nonstopmode
 
 
 TEX_FILES:=$(MD_FILES:.md=.tex)
@@ -19,9 +20,10 @@ all: $(TEX_FILES) $(PDF_FILES)
 #		$(PANDOC) -s -S -t beamer $< -V theme:$(THEME) -V colortheme:$(COLORTHEME) --natbib --bibliography $(BIBLIOGRAPHY) --template $(TEMPLATE) -o $@
 
 %.pdf: %.tex
-		pdflatex $(basename $<)
+		pdflatex $(TEX_FLAGS) $(basename $<)
 		biber $(basename $<)
-		pdflatex $(basename $<)
+		pdflatex $(TEX_FLAGS) $(basename $<)
+		rm $(basename $<).aux $(basename $<).out $(basename $<).log $(basename $<).fls $(basename $<).bbl $(basename $<).vrb $(basename $<).nav $(basename $<).bcf $(basename $<).to $(basename $<).snm $(basename $<).run.xml
 
 %.tex: %.md $(TEMPLATE_FILES) $(BIBLIOGRAPHY)
 		#$(PANDOC) -s -S -t beamer $< -V theme:$(THEME) -V colortheme:$(COLORTHEME) --filter pandoc-citeproc --bibliography $(BIBLIOGRAPHY) --template $(TEMPLATE) -o $@
@@ -32,4 +34,4 @@ watch: $(MD_FILES) $(BIBLIOGRAPHY)
 
 .PHONY : clean
 clean :
-	-rm $(PDF_FILES) *.aux *.out *.log *.fdb_latexmk *.fls *.synctex.gz *.bbl
+	-rm $(PDF_FILES) *.aux *.out *.log *.fdb_latexmk *.fls *.synctex.gz *.bbl *.vrb *.nav *.bcf *.toc *.snm *.run.xml
